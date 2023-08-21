@@ -11,15 +11,15 @@ const departmentsData = [
   },
 ];
 
-interface SubDepartment {
-  name: string;
-}
+// interface SubDepartment {
+//   name: string;
+// }
 
-interface DepartmentData {
-  name: string;
-  isOpen: boolean;
-  subDepartments: SubDepartment[];
-}
+// interface DepartmentData {
+//   name: string;
+//   isOpen: boolean;
+//   subDepartments: SubDepartment[];
+// }
 
 const Department: React.FC = () => {
   const [departmentData, setDepartmentData] = useState(
@@ -61,10 +61,6 @@ const Department: React.FC = () => {
       setSelectedDepartments(prevDepartments => prevDepartments.filter(dep => dep !== department));
     } else {
       setSelectedSubDepartments(prevSubDepartments => [...prevSubDepartments, subDepartment]);
-      const allSubs = departmentsData.find(d => d.department === department)?.sub_departments || [];
-      if (allSubs.every(subDep => selectedSubDepartments.includes(subDep))) {
-        setSelectedDepartments(prevDepartments => [...prevDepartments, department]);
-      }
     }
   };
 
