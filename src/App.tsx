@@ -3,19 +3,14 @@ import UserForm from './components/Formpage/UserForm';
 import SecondPage from './components/Secondpage/SecondPage';
 
 const App = () => {
-  // const [userDetailsEntered, setUserDetailsEntered] = useState(false);
-
-  const handleUserDetailsEntered = () => {
-    // setUserDetailsEntered(true);
-    window.location.href = '/second-page';
-  };
-
+  // const [userDetailsEntered, setUserDetailsEntered] = useState(false)
+  
   return (
 
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<UserForm onSubmit={handleUserDetailsEntered} />} />
+        <Route path="/" element={<UserForm/>} />
           <Route  path="/second-page" element={<SecondPage />} />
       </Routes>
     </BrowserRouter>

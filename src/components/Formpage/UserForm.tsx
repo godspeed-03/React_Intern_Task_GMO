@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
 
-const UserForm: React.FC<{ onSubmit: () => void }> = ({ onSubmit }) => {
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const UserForm: React.FC = () => {
+  // const history = useHistory(); // Access the history object
+
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -15,10 +20,10 @@ const UserForm: React.FC<{ onSubmit: () => void }> = ({ onSubmit }) => {
     };
 
     localStorage.setItem('userDetails', JSON.stringify(userDetails));
-   
-    console.log(userDetails);
-    onSubmit();
-}
+
+    // Redirect to the second page
+    navigate('/second-page');
+  };
 
    
 
